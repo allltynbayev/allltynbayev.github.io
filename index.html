@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Наш путеводитель по Вьетнаму</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="app-header">
+        <div>
+          <h1>Вьетнам</h1>
+          <p class="subtitle">Наш личный мини‑путеводитель</p>
+        </div>
+        <button class="tab-toggle" id="loveButton" aria-label="Сказать, что люблю">
+          ♥
+        </button>
+      </header>
+
+      <nav class="tabs" aria-label="Разделы путеводителя">
+        <button class="tab active" data-tab="overview">Общее</button>
+        <button class="tab" data-tab="packing">Собрать чемодан</button>
+        <button class="tab" data-tab="places">Места</button>
+        <button class="tab" data-tab="notes">Заметки</button>
+      </nav>
+
+      <div class="love-overlay" id="loveOverlay">
+        <div class="love-overlay-content">
+          <span>я тебя люблю!</span>
+        </div>
+      </div>
+
+      <main class="tab-content">
+        <!-- Общее -->
+        <section class="tab-panel" id="tab-overview" data-section="overview">
+          <div class="intro-row">
+            <p class="intro-text-main">
+              Привет! Я твой карманный помощник на предстоящее путешествие. Тут я собрал все что
+              тебе нужно для комфортного отдыха!
+            </p>
+            <img src="stk.png" alt="Забавный котик машет лапой" class="intro-stk" />
+          </div>
+          <h2>Начнем с небольшой истории Вьетнама и интересных фактов:)</h2>
+          <p class="lead story-text">
+            История Вьетнама — это многовековой путь от первых древних государств через почти
+            тысячелетнее китайское владычество к эпохе независимых императорских династий,
+            расширивших страну на юг. В XIX веке Вьетнам стал французской колонией, что позже
+            привело к затяжным освободительным войнам: сначала против Франции, а затем к
+            масштабному конфликту между коммунистическим Севером и проамериканским Югом при
+            участии США. После объединения страны в 1976 году и периода послевоенного кризиса
+            Вьетнам провёл рыночные реформы «Дой Мой», превратившись в одну из самых динамично
+            развивающихся экономик современной Азии.
+          </p>
+          <p class="lead story-text">
+            История Нячанга началась с древнего королевства Чампа, о чём напоминают башни По
+            Нагар, построенные более тысячи лет назад. Само название города переводится как
+            «Река тростника». В начале XX века французские колонисты, очарованные местной
+            бухтой, превратили рыбацкую деревню в элитный курорт, прозвав его «вьетнамской
+            Ниццей». Среди уникальных фактов: именно здесь находится один из старейших в Азии
+            институтов океанографии, а залив официально признан одним из самых красивых в мире.
+          </p>
+
+          <h2 class="section-label warn-header">
+            ВАЖНО ❗
+            <img src="no-no-mella.png" alt="Предупреждающий смайлик" class="warn-gif" />
+          </h2>
+
+          <h3 class="title-24">Что делать <span class="danger-text">нельзя</span>:</h3>
+          <ul class="simple-list text-18">
+            <li>Пить воду из-под крана</li>
+            <li>Трогать вьетнамцев за голову или плечи — это считается оскорблением</li>
+            <li>Манить людей пальцем — лучше использовать всю ладонь, повернутую вниз</li>
+            <li>При посещении храмов нельзя носить открытую одежду</li>
+          </ul>
+
+          <img src="peek-stare.png" alt="Подглядывающий взгляд" class="peek-gif" />
+          <h3 class="title-24">Меры <span class="warn-text">предосторожности</span>:</h3>
+          <ul class="simple-list text-18">
+            <li>Переходить дорогу нужно медленно и предсказуемо</li>
+            <li>В городе распространено мелкое воровство сумок и телефонов, особенно на пляжах</li>
+            <li>Использовать санитайзер и влажные салфетки</li>
+          </ul>
+        </section>
+
+        <!-- Собрать чемодан -->
+        <section class="tab-panel" id="tab-packing" data-section="packing">
+          <h2>Давай помогу собраться:)</h2>
+
+          <h3 class="title-24">Что обязательно взять</h3>
+          <ul class="checklist" id="packingMustList"></ul>
+          <form class="packing-form" data-pack-type="must">
+            <input
+              type="text"
+              class="packing-input"
+              placeholder="Добавить пункт в список..."
+            />
+            <button type="submit" class="secondary-btn">+</button>
+          </form>
+
+          <h3 class="title-24">То, без чего можно обойтись</h3>
+          <ul class="checklist" id="packingOptionalList"></ul>
+          <form class="packing-form" data-pack-type="optional">
+            <input
+              type="text"
+              class="packing-input"
+              placeholder="Добавить пункт в список..."
+            />
+            <button type="submit" class="secondary-btn">+</button>
+          </form>
+        </section>
+
+        <!-- Места -->
+        <section class="tab-panel" id="tab-places" data-section="places">
+          <h2>Места и впечатления</h2>
+          <p class="lead">
+            Список мест, где мы были и куда хотим.
+          </p>
+
+          <div class="places-header">
+            <span>Место</span>
+            <span>Были</span>
+          </div>
+
+          <div id="placesList"></div>
+
+          <form id="placeForm" class="place-form">
+            <h3>Добавить место</h3>
+            <label class="field">
+              <span>Название</span>
+              <input type="text" id="placeName" placeholder="Кафе, пляж, храм..." required />
+            </label>
+            <label class="field">
+              <span>Краткое описание (опционально)</span>
+              <input type="text" id="placeDesc" placeholder="Например: лучший кофе рядом с отелем" />
+            </label>
+            <label class="field">
+              <span>Категория</span>
+              <select id="placeCategory">
+                <option value="Культурное">Культурное</option>
+                <option value="Развлекательное">Развлекательное</option>
+                <option value="Еда/Напитки">Еда/Напитки</option>
+                <option value="Другое">Другое</option>
+              </select>
+            </label>
+            <button type="submit" class="primary-btn">Добавить в список</button>
+          </form>
+        </section>
+
+        <!-- Заметки -->
+        <section class="tab-panel" id="tab-notes" data-section="notes">
+          <h2>Общие заметки</h2>
+          <p class="lead">
+            Здесь можно вести мини‑дневник поездки: что понравилось, смешные моменты, полезные
+            наблюдения.
+          </p>
+          <textarea
+            id="tripNotes"
+            class="notes-textarea"
+            rows="10"
+            placeholder="Например: первый день — прилетели, очень влажно, но красиво..."
+          ></textarea>
+          <div class="notes-actions">
+            <span class="notes-status" id="notesStatus">Изменения сохраняются автоматически</span>
+            <button class="secondary-btn" id="clearNotesBtn" type="button">
+              Очистить заметки
+            </button>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+
