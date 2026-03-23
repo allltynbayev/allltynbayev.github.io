@@ -41,25 +41,22 @@
             </p>
             <img src="stk.png" alt="Забавный котик машет лапой" class="intro-stk" />
           </div>
-          <h2>Начнем с небольшой истории Вьетнама и интересных фактов:)</h2>
-          <p class="lead story-text">
-            История Вьетнама — это многовековой путь от первых древних государств через почти
-            тысячелетнее китайское владычество к эпохе независимых императорских династий,
-            расширивших страну на юг. В XIX веке Вьетнам стал французской колонией, что позже
-            привело к затяжным освободительным войнам: сначала против Франции, а затем к
-            масштабному конфликту между коммунистическим Севером и проамериканским Югом при
-            участии США. После объединения страны в 1976 году и периода послевоенного кризиса
-            Вьетнам провёл рыночные реформы «Дой Мой», превратившись в одну из самых динамично
-            развивающихся экономик современной Азии.
-          </p>
-          <p class="lead story-text">
-            История Нячанга началась с древнего королевства Чампа, о чём напоминают башни По
-            Нагар, построенные более тысячи лет назад. Само название города переводится как
-            «Река тростника». В начале XX века французские колонисты, очарованные местной
-            бухтой, превратили рыбацкую деревню в элитный курорт, прозвав его «вьетнамской
-            Ниццей». Среди уникальных фактов: именно здесь находится один из старейших в Азии
-            институтов океанографии, а залив официально признан одним из самых красивых в мире.
-          </p>
+          <h2 class="info-title">Немного информации:)</h2>
+
+          <div class="info-cards" role="list" aria-label="Интересная информация">
+            <button type="button" class="info-card" data-info="vn-history" role="listitem">
+              История Вьетнама
+            </button>
+            <button type="button" class="info-card" data-info="nhatrang-history" role="listitem">
+              История Нячанга
+            </button>
+            <button type="button" class="info-card" data-info="facts" role="listitem">
+              Интересные факты
+            </button>
+            <button type="button" class="info-card" data-info="culture" role="listitem">
+              Культура
+            </button>
+          </div>
 
           <h2 class="section-label warn-header">
             ВАЖНО ❗
@@ -98,16 +95,7 @@
             <button type="submit" class="secondary-btn">+</button>
           </form>
 
-          <h3 class="title-24">То, без чего можно обойтись</h3>
-          <ul class="checklist" id="packingOptionalList"></ul>
-          <form class="packing-form" data-pack-type="optional">
-            <input
-              type="text"
-              class="packing-input"
-              placeholder="Добавить пункт в список..."
-            />
-            <button type="submit" class="secondary-btn">+</button>
-          </form>
+          <!-- Секция "То, без чего можно обойтись" удалена по запросу -->
         </section>
 
         <!-- Места -->
@@ -168,6 +156,16 @@
           </div>
         </section>
       </main>
+
+      <div class="info-modal-overlay" id="infoModal" aria-hidden="true" role="dialog" aria-modal="true">
+        <div class="info-modal" role="document">
+          <button type="button" class="info-modal-close" id="infoModalClose" aria-label="Закрыть">
+            ✕
+          </button>
+          <h2 class="info-modal-title" id="infoModalTitle"></h2>
+          <div class="info-modal-body" id="infoModalBody"></div>
+        </div>
+      </div>
     </div>
 
     <script src="script.js"></script>
